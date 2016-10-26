@@ -1,0 +1,39 @@
+First, Idea for a better name for the project: CrawlSpace.
+Reason: It's a Dungeon Crawl in 3 dimensions, or a space.
+Our opening could be someone actually went exploring in a 2D dungeon, in a small cramped area and was pulled in.
+
+Idea for a level/boss arena: A Labyrinth. However the idea is a very old trope, so lets do something new.
+Not only is there a Minotaur in there somewhere hunting you down, but it takes place in a house of mirrors,
+with trick walls, one way passages that close behind you, and if you make too much noise, like during a fight with
+a mook, the minotaur might hear you and charge in your direction through the mirrors smashing them as he goes.
+
+The player should be able to smash mirrors in this maze as well, but doing so would be loud an draw the attention ofthe Minotaur.
+
+Idea: Fonts look like they have the 3D effect on them. However they are built out of a simple 2D image in a font.png
+file the player can easily replace if they want. In fact the player can replace the fonts with icons if they wish
+by having a .xml file that loads the images for every monster and item at the start. The XML will list the file and
+the position in the file the image can be found at. This allows for easy modding. Example .xml entry follows:
+
+<creature = "Minotaur">
+  <file = "Boss.png">
+    <size>24</size>
+    <row>3</row>
+    <col>16</col>
+    <color1>magenta</color1>
+    <color2>green</color2>
+    <color3>cyan</color3>
+    <colorTransparent>purple</colorTransparent>
+  </file>
+</creature>
+
+The row and column tags tell the program which row and column of the image the Icon can be found in, as well as the size telling
+it how many pixels the icon is.
+
+Colors 1-3 are different colors used by the .png to represent different highlights in the game for the font when used.
+For example a kobold might be a green K, however it doesn't mean that the whole character must be green. Perhaps there could
+be more nuance, like certain highlights that might glow or indicate what kind of weapon the kobold is wielding or armor he is
+wearing. The transparancy color indicates which part of the image do not belong to the character.
+
+More information about the monster can be added, including stats and the like, allowing easy modding by other people with
+minimal knowledge required. Other tags like <hostile> or <immobile> and the like can affect it's behavior. This allows us to
+create behaviors that are distinct from the monsters themselves, and players to create monsters as they want them.
